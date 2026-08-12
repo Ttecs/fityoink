@@ -178,32 +178,24 @@
       margin: 0 20px;
     }
 
-    /* ── Ko-fi ── */
-    .kofi-wrap {
-      text-align: center;
-      padding: 48px 20px;
-    }
-    .kofi-wrap p {
-      font-size: .9rem;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-    .kofi-btn {
+    /* ── Ko-fi inline ── */
+    .kofi-inline {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: #ff5e5b;
-      color: #fff;
-      font-size: .95rem;
-      font-weight: 700;
-      padding: 13px 28px;
+      gap: 8px;
+      margin-top: 16px;
+      padding: 10px 20px;
+      background: rgba(255,94,91,.1);
+      border: 1px solid rgba(255,94,91,.25);
       border-radius: 50px;
+      color: #ff7875;
+      font-size: .85rem;
+      font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 4px 20px rgba(255,94,91,.35);
-      transition: opacity .2s, transform .15s;
+      transition: background .15s, transform .15s;
     }
-    .kofi-btn:hover { opacity: .88; transform: translateY(-2px); }
-    .kofi-btn img { width: 22px; height: 22px; }
+    .kofi-inline:hover { background: rgba(255,94,91,.18); transform: translateY(-1px); }
+    .kofi-inline img { width: 18px; height: 18px; }
 
     /* ── Footer ── */
     footer {
@@ -242,6 +234,11 @@
         <a href="https://github.com/Ttecs/fityoink" target="_blank">Source code is open if you want to check.</a>
       </div>
     </div>
+
+    <a class="kofi-inline" href="https://ko-fi.com/ttecsx" target="_blank">
+      <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi" />
+      If this saved you some time, buy me a coffee ☕
+    </a>
   </section>
 
   <hr class="divider" />
@@ -318,15 +315,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Ko-fi -->
-  <div class="kofi-wrap">
-    <p>FitYoink is free and always will be. If it saved you time, a coffee helps keep it going ☕</p>
-    <a class="kofi-btn" href="https://ko-fi.com/ttecsx" target="_blank">
-      <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi" />
-      Buy me a coffee
-    </a>
-  </div>
 
   <!-- Footer -->
   <footer>
