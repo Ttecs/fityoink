@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>datanodes.to Setup — FitYoink</title>
+  <meta name="description" content="Step by step guide to set up Bright Data for datanodes.to downloads in FitYoink." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0b0b16;
+      --surface: #13132a;
+      --border:  #1e1e3a;
+      --accent:  #4f8ef7;
+      --accent2: #00c6ff;
+      --text:    #e2e8f0;
+      --muted:   #7a8aaa;
+      --success: #10b981;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text);
+      font-weight: 700; font-size: 1rem;
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-back {
+      font-size: .85rem; color: var(--accent); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-back:hover { text-decoration: underline; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: 56px 20px 40px;
+      background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(79,142,247,.12), transparent);
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .hero p { font-size: .95rem; color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.7; }
+    .hero .badge {
+      display: inline-block;
+      margin-bottom: 16px;
+      background: rgba(16,185,129,.12);
+      border: 1px solid rgba(16,185,129,.25);
+      color: var(--success);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: .4px;
+    }
+
+    /* ── Steps ── */
+    .steps-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .step-num {
+      width: 40px; height: 40px; flex-shrink: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .9rem; color: #fff;
+    }
+
+    .step h2 { font-size: 1.1rem; font-weight: 700; }
+
+    .step p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      padding-left: 54px;
+    }
+    .step p strong { color: var(--text); }
+
+    .step img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-top: 4px;
+    }
+
+    /* ── Final step card ── */
+    .done-card {
+      background: rgba(16,185,129,.07);
+      border: 1px solid rgba(16,185,129,.2);
+      border-radius: 14px;
+      padding: 24px 22px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .done-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .done-card h3 { font-size: 1rem; font-weight: 700; color: var(--success); margin-bottom: 6px; }
+    .done-card p  { font-size: .87rem; color: var(--muted); line-height: 1.6; }
+    .done-card strong { color: var(--text); }
+
+    /* ── Back button ── */
+    .back-wrap { text-align: center; padding-bottom: 60px; }
+    .btn-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: .9rem; font-weight: 600;
+      padding: 12px 28px; border-radius: 50px;
+      text-decoration: none;
+      transition: border-color .15s;
+    }
+    .btn-back:hover { border-color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="FitYoink" />
+      FitYoink
+    </a>
+    <a class="nav-back" href="index.html">← Back to home</a>
+  </nav>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="badge">FREE ACCOUNT · 5 MINUTES</div>
+    <h1>Setting up datanodes.to</h1>
+    <p>datanodes.to uses Cloudflare Turnstile to block bots. Bright Data's Scraping Browser solves it automatically in the cloud. Here's how to set it up.</p>
+  </div>
+
+  <!-- Steps -->
+  <div class="steps-wrap">
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <h2>Create a Bright Data account</h2>
+      </div>
+      <p>Go to <strong>brightdata.com</strong>, sign up for a free account and log in. Once you're on the dashboard, click <strong>Web Access</strong> in the left sidebar.</p>
+      <img src="ss1.png" alt="Click Web Access in the sidebar" />
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <h2>Open the Dashboard and create a new API</h2>
+      </div>
+      <p>Click the <strong>Dashboard</strong> tab, then click <strong>Create API</strong> in the top-right corner.</p>
+      <img src="ss2.png" alt="Click Create API" />
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <h2>Select Browser API</h2>
+      </div>
+      <p>On the "Choose API type" screen, select <strong>Browser API</strong> (the top option), then click <strong>Continue</strong>.</p>
+      <img src="ss3.png" alt="Select Browser API" />
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <h2>Name your API and add it</h2>
+      </div>
+      <p>Give it any name (e.g. <strong>scraping_browser1</strong>). Make sure <strong>CAPTCHA Solver</strong> is toggled on — this is what bypasses Cloudflare. Click <strong>Add API</strong>.</p>
+      <img src="ss4.png" alt="Name the API and click Add API" />
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">5</div>
+        <h2>Copy your WSS URL</h2>
+      </div>
+      <p>On the next screen you'll see a <strong>wss://...</strong> connection URL under Puppeteer / Playwright. Copy that entire line.</p>
+      <img src="ss5.png" alt="Copy the WSS URL" />
+    </div>
+
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">6</div>
+        <h2>Paste it into FitYoink Settings</h2>
+      </div>
+      <p>Open FitYoink, click the <strong>⚙️ Settings</strong> icon in the top-right, paste your WSS URL into the <strong>Bright Data Scraping Browser WSS URL</strong> field, and click <strong>Save</strong>.</p>
+    </div>
+
+    <!-- Done card -->
+    <div class="done-card">
+      <div class="done-icon">✅</div>
+      <div>
+        <h3>You're all set!</h3>
+        <p>Now select <strong>🗄 datanodes.to</strong> in FitYoink, paste your game page URL and click <strong>Fetch Links</strong>. FitYoink will handle the Cloudflare bypass automatically.</p>
+      </div>
+    </div>
+
+    <div class="back-wrap">
+      <a class="btn-back" href="index.html">← Back to FitYoink</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
