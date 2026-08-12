@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitYoink — No more clicking each link</title>
+  <meta name="description" content="Paste a FitGirl game page URL and FitYoink downloads everything automatically. No more clicking each link one by one." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0b0b16;
+      --surface: #13132a;
+      --border:  #1e1e3a;
+      --accent:  #4f8ef7;
+      --accent2: #00c6ff;
+      --text:    #e2e8f0;
+      --muted:   #7a8aaa;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(79,142,247,.15), transparent);
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 26px;
+      box-shadow: 0 8px 40px rgba(79,142,247,.35);
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff 30%, var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .hero p strong { color: var(--text); }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 30px rgba(79,142,247,.4);
+      transition: opacity .2s, transform .15s;
+    }
+    .btn-download:hover { opacity: .88; transform: translateY(-2px); }
+    .btn-download svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    .dl-meta {
+      margin-top: 14px;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .smartscreen-tip {
+      margin-top: 10px;
+      font-size: .8rem;
+      color: var(--muted);
+      max-width: 400px;
+    }
+    .smartscreen-tip a { color: var(--accent); text-decoration: none; }
+
+    /* ── Steps ── */
+    .section { padding: 70px 20px; max-width: 860px; margin: 0 auto; }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 48px;
+      color: var(--text);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .step-num {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+    }
+
+    .step h3 { font-size: 1rem; font-weight: 700; }
+    .step p  { font-size: .87rem; color: var(--muted); line-height: 1.6; }
+    .step p code {
+      background: var(--border); padding: 1px 6px; border-radius: 4px;
+      font-size: .82rem; color: var(--accent2);
+    }
+
+    /* ── Features ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .feature {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .feature-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .feature h4   { font-size: .95rem; font-weight: 700; margin-bottom: 4px; }
+    .feature p    { font-size: .82rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 20px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="logo.png" alt="FitYoink logo" class="logo" />
+    <h1>FitYoink</h1>
+    <p>No more clicking each FitGirl repack link separately.<br>
+    Paste the <strong>game page URL</strong>, pick your host, and let it download everything.</p>
+
+    <a class="btn-download" href="https://github.com/Ttecs/fityoink/releases/latest" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+      Download FitYoink — Free
+    </a>
+
+    <div class="dl-meta">Windows 64-bit &nbsp;·&nbsp; v2.0.0 &nbsp;·&nbsp; No install needed</div>
+    <div class="smartscreen-tip">
+      💡 Windows may show an "unrecognized app" popup — click <strong>More info → Run anyway</strong>. Totally normal for indie apps.
+      <a href="https://github.com/Ttecs/fityoink" target="_blank">Source code is open here.</a>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- How it works -->
+  <section class="section">
+    <div class="section-title">How it works</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Paste the game page URL</h3>
+        <p>Grab the FitGirl game page URL like <code>fitgirl-repacks.site/game-name/</code> and paste it in.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Pick your host</h3>
+        <p>Choose <strong>fuckingfast.co</strong> (works instantly) or <strong>datanodes.to</strong> (needs free Bright Data setup).</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Click Fetch &amp; Download</h3>
+        <p>FitYoink finds all the links, shows you the file list, and downloads everything one by one automatically.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- Features -->
+  <section class="section">
+    <div class="section-title">What you get</div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <div>
+          <h4>fuckingfast.co — no setup</h4>
+          <p>Works out of the box. Just paste and go.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🗄️</div>
+        <div>
+          <h4>datanodes.to support</h4>
+          <p>App walks you through Bright Data setup step by step — built right in.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⏸️</div>
+        <div>
+          <h4>Pause &amp; resume</h4>
+          <p>Stop anytime and pick up exactly where you left off.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📂</div>
+        <div>
+          <h4>Pick your files</h4>
+          <p>See the full file list before downloading — select only what you need.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔗</div>
+        <div>
+          <h4>Multiple hosts</h4>
+          <p>Also supports pixeldrain, gofile, 1fichier, buzzheavier, mediafire.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🆓</div>
+        <div>
+          <h4>Completely free</h4>
+          <p>Open source. No account. No ads. No nonsense.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>FitYoink by <a href="https://github.com/Ttecs" target="_blank">Ttecs</a> &nbsp;·&nbsp;
+    <a href="https://github.com/Ttecs/fityoink" target="_blank">Source on GitHub</a> &nbsp;·&nbsp;
+    Non-commercial use only</p>
+  </footer>
+
+</body>
+</html>
