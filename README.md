@@ -16,6 +16,8 @@ Windows x64 only. No install needed — just extract and run.
 
 > **💡 First run tip:** Windows might say "unrecognized app" — just click **More info → Run anyway**. This happens to all unsigned indie apps. Source code is right here on GitHub if you want to check it.
 
+If FitYoink saved you some time, a coffee keeps it going ☕ &nbsp; [![Ko-fi](https://img.shields.io/badge/Buy%20me%20a%20coffee-Ko--fi-ff5e5b?style=flat-square&logo=ko-fi&logoColor=white)](https://ko-fi.com/ttecsx)
+
 ---
 
 ## How to run
