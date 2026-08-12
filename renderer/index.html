@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';" />
+  <title>FitYoink</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-left">
+      <span class="logo">🎮</span>
+      <span class="app-title">FitYoink <span class="version">v2</span></span>
+      <span class="tagline">no more clicking each link</span>
+    </div>
+    <button class="icon-btn" id="btn-settings" title="Settings">⚙️</button>
+  </header>
+
+  <!-- Bright Data warning banner -->
+  <div id="brd-banner" class="brd-banner hidden">
+    <span>⚠️ Bright Data WSS URL is not set — datanodes.to and fuckingfast.co won't work.</span>
+    <button id="brd-banner-btn" class="btn btn-ghost btn-sm">Open Settings</button>
+  </div>
+
+  <!-- Main layout -->
+  <div class="layout">
+
+    <!-- Left panel -->
+    <div class="panel-left">
+
+      <!-- Paste URL -->
+      <section class="card">
+        <label class="card-label">Paste URL</label>
+        <div class="input-row">
+          <input id="paste-url" type="text" class="input" placeholder="https://paste.fitgirl-repacks.site/..." spellcheck="false" />
+          <button id="btn-fetch" class="btn btn-primary">Fetch</button>
+        </div>
+        <div id="fetch-status" class="status-text"></div>
+      </section>
+
+      <!-- File list -->
+      <section class="card flex-grow" id="files-card" style="display:none">
+        <div class="card-header-row">
+          <label class="card-label">Files <span id="file-count" class="badge"></span></label>
+          <button id="btn-select-all" class="btn btn-ghost btn-sm">Select All</button>
+        </div>
+        <div id="file-list" class="file-list"></div>
+      </section>
+
+      <!-- Download bar -->
+      <section class="card" id="dl-bar" style="display:none">
+        <div class="input-row">
+          <input id="dl-dir" type="text" class="input" readonly />
+          <button id="btn-browse" class="btn btn-ghost">Browse</button>
+        </div>
+        <button id="btn-download" class="btn btn-primary btn-full">⬇ Download Selected</button>
+      </section>
+
+    </div>
+
+    <!-- Right panel -->
+    <div class="panel-right">
+      <section class="card flex-grow">
+        <label class="card-label">Downloads</label>
+        <div id="queue" class="queue">
+          <div class="empty-queue">Select files and click Download</div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <!-- Settings modal -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <span>Settings</span>
+        <button id="btn-close-modal" class="icon-btn">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="field-label">Download Folder</label>
+        <div class="input-row">
+          <input id="s-dl-dir" type="text" class="input" />
+          <button id="s-browse" class="btn btn-ghost">Browse</button>
+        </div>
+
+        <label class="field-label" style="margin-top:16px">Bright Data Scraping Browser WSS URL</label>
+        <input id="s-sbr-ws" type="text" class="input" placeholder="wss://brd-customer-...@brd.superproxy.io:9222" />
+        <p class="hint">Required for fuckingfast.co and datanodes.to (Cloudflare Turnstile bypass)</p>
+
+        <label class="field-label" style="margin-top:16px">Pre-resolve trigger (%)</label>
+        <input id="s-trigger" type="number" class="input input-sm" min="10" max="99" value="80" />
+        <p class="hint">Start resolving the next link when current download reaches this %</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-save-settings" class="btn btn-primary">Save</button>
+        <button id="btn-cancel-settings" class="btn btn-ghost">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

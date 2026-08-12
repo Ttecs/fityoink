@@ -1,0 +1,34 @@
+{
+  "name": "fityoink",
+  "version": "2.0.0",
+  "description": "No more clicking each link — paste once, yoink everything",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win",
+    "build:portable": "electron-builder --win portable",
+    "build:installer": "electron-builder --win nsis"
+  },
+  "dependencies": {
+    "playwright-core": "1.62.1"
+  },
+  "devDependencies": {
+    "electron": "^34.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.fityoink.app",
+    "productName": "FitYoink",
+    "asar": false,
+    "files": [
+      "**/*",
+      "!*.md",
+      "!.git"
+    ],
+    "win": {
+      "target": [
+        { "target": "dir", "arch": ["x64"] }
+      ]
+    }
+  }
+}
