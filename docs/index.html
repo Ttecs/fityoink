@@ -88,13 +88,24 @@
       color: var(--muted);
     }
 
-    .smartscreen-tip {
-      margin-top: 10px;
-      font-size: .8rem;
+    .smartscreen-card {
+      margin-top: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 12px;
+      padding: 14px 18px;
+      max-width: 460px;
+      text-align: left;
+      font-size: .82rem;
       color: var(--muted);
-      max-width: 400px;
+      line-height: 1.6;
     }
-    .smartscreen-tip a { color: var(--accent); text-decoration: none; }
+    .smartscreen-card strong { color: var(--text); }
+    .smartscreen-card a { color: var(--accent); text-decoration: none; }
+    .smartscreen-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
 
     /* ── Steps ── */
     .section { padding: 70px 20px; max-width: 860px; margin: 0 auto; }
@@ -195,9 +206,14 @@
     </a>
 
     <div class="dl-meta">Windows 64-bit &nbsp;·&nbsp; v2.0.0 &nbsp;·&nbsp; No install needed</div>
-    <div class="smartscreen-tip">
-      💡 Windows may show an "unrecognized app" popup — click <strong>More info → Run anyway</strong>. Totally normal for indie apps.
-      <a href="https://github.com/Ttecs/fityoink" target="_blank">Source code is open here.</a>
+
+    <div class="smartscreen-card">
+      <span class="smartscreen-icon">💡</span>
+      <div>
+        <strong>First time running?</strong> Windows might show an "unrecognized app" popup.
+        Just click <strong>More info → Run anyway</strong> — totally normal for indie apps.
+        <a href="https://github.com/Ttecs/fityoink" target="_blank">Source code is open if you want to check.</a>
+      </div>
     </div>
   </section>
 
