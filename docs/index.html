@@ -178,6 +178,33 @@
       margin: 0 20px;
     }
 
+    /* ── Ko-fi ── */
+    .kofi-wrap {
+      text-align: center;
+      padding: 48px 20px;
+    }
+    .kofi-wrap p {
+      font-size: .9rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .kofi-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #ff5e5b;
+      color: #fff;
+      font-size: .95rem;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(255,94,91,.35);
+      transition: opacity .2s, transform .15s;
+    }
+    .kofi-btn:hover { opacity: .88; transform: translateY(-2px); }
+    .kofi-btn img { width: 22px; height: 22px; }
+
     /* ── Footer ── */
     footer {
       text-align: center;
@@ -291,6 +318,15 @@
       </div>
     </div>
   </section>
+
+  <!-- Ko-fi -->
+  <div class="kofi-wrap">
+    <p>FitYoink is free and always will be. If it saved you time, a coffee helps keep it going ☕</p>
+    <a class="kofi-btn" href="https://ko-fi.com/ttecsx" target="_blank">
+      <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi" />
+      Buy me a coffee
+    </a>
+  </div>
 
   <!-- Footer -->
   <footer>
