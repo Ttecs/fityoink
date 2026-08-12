@@ -135,6 +135,14 @@ Copy the `wss://...` line shown under **Puppeteer / Playwright**.
 
 ---
 
+## Support
+
+If FitYoink saved you some time, a coffee keeps it going ☕
+
+[![Ko-fi](https://img.shields.io/badge/Buy%20me%20a%20coffee-Ko--fi-ff5e5b?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/ttecsx)
+
+---
+
 ## License
 
 Non-commercial use only. See [LICENSE](LICENSE).
