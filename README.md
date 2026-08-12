@@ -12,8 +12,7 @@ Supports: **fuckingfast.co**, **datanodes.to**, **pixeldrain**, **gofile**, **1f
 
 Windows x64 only. No install needed — just extract and run.
 
-> [!WARNING]
-> **Windows SmartScreen warning is normal.** When you run the exe, Windows may say "unrecognized app". This happens because the app isn't code-signed (certificates cost $300+/year). Click **More info → Run anyway** to proceed. The full source code is open above if you want to verify it yourself.
+> **💡 First run tip:** Windows might say "unrecognized app" — just click **More info → Run anyway**. This happens to all unsigned indie apps. Source code is right here on GitHub if you want to check it.
 
 ---
 
