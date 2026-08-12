@@ -1,3 +1,5 @@
+[![Ko-fi](https://img.shields.io/badge/Buy%20me%20a%20coffee-Ko--fi-ff5e5b?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/ttecsx)
+
 # FitYoink
 
 No more clicking each FitGirl repack link separately. Paste the game page URL once, pick your download host, and FitYoink fetches and downloads everything automatically.
